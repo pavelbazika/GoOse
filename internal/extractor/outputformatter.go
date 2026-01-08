@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/advancedlogic/GoOse/pkg/goose"
+	"github.com/pavelbazika/GoOse/pkg/goose"
 	"golang.org/x/net/html"
 )
 
@@ -142,18 +142,18 @@ func (formatter *outputFormatter) getOutputText() string {
 	// More aggressive whitespace cleanup
 	out = normalizeNl.ReplaceAllString(out, "\n\n")
 	out = multipleSpaces.ReplaceAllString(out, "\n\n")
-	
+
 	// Final cleanup: remove leading/trailing whitespace
 	out = strings.TrimSpace(out)
-	
+
 	// Additional cleanup for cases where content extraction has issues
 	lines := strings.Split(out, "\n")
 	cleanedLines := []string{}
 	seenContent := make(map[string]bool)
-	
+
 	for _, line := range lines {
 		line = strings.TrimSpace(line)
-		
+
 		// Skip lines that are clearly navigation or metadata
 		if line != "" && !seenContent[line] && !formatter.isNavigationLine(line) {
 			cleanedLines = append(cleanedLines, line)
@@ -163,10 +163,10 @@ func (formatter *outputFormatter) getOutputText() string {
 			cleanedLines = append(cleanedLines, "")
 		}
 	}
-	
+
 	out = strings.Join(cleanedLines, "\n")
 	out = strings.TrimSpace(out)
-	
+
 	return out
 }
 
@@ -218,9 +218,9 @@ func (formatter *outputFormatter) isNavigationLine(line string) bool {
 	if len(line) == 0 {
 		return false
 	}
-	
+
 	lowerLine := strings.ToLower(line)
-	
+
 	// Exact matches for navigation elements
 	navExact := []string{
 		"ad feedback", "cnn values your feedback", "how relevant is this ad to you?",
@@ -260,35 +260,35 @@ func (formatter *outputFormatter) isNavigationLine(line string) bool {
 		"cnn sans ™ & © 2016 cable news network.", "facebook", "tweet", "email",
 		"link", "link copied!", "follow", "see all topics", "donald trump",
 	}
-	
+
 	for _, exact := range navExact {
 		if lowerLine == exact {
 			return true
 		}
 	}
-	
+
 	// Pattern matches
 	navPatterns := []string{
 		"min read", "updated", "published", "analysis by", "getty images",
 		"reuters", "bloomberg", "afp", "via getty images", "jim watson/afp/getty images",
 		"annabelle gordon/reuters", "jamie kelter davis/bloomberg/getty images",
 	}
-	
+
 	for _, pattern := range navPatterns {
 		if strings.Contains(lowerLine, pattern) {
 			return true
 		}
 	}
-	
+
 	// Check for very short lines that are likely navigation
 	if len(strings.TrimSpace(line)) < 3 {
 		return true
 	}
-	
+
 	// Check for lines that are just numbers or punctuation
 	if strings.TrimSpace(line) == "•" || strings.TrimSpace(line) == "1." || strings.TrimSpace(line) == "2." {
 		return true
 	}
-	
+
 	return false
 }

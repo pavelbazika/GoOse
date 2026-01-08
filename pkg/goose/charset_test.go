@@ -2,7 +2,8 @@ package goose
 
 import (
 	"testing"
-	"github.com/advancedlogic/GoOse/internal/utils"
+
+	"github.com/pavelbazika/GoOse/internal/utils"
 )
 
 func TestNormaliseCharset(t *testing.T) {

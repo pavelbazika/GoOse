@@ -1,4 +1,4 @@
-module github.com/advancedlogic/GoOse
+module github.com/pavelbazika/GoOse
 
 go 1.24.3
 

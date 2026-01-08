@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/advancedlogic/GoOse/cmd/goose/cmd"
+	"github.com/pavelbazika/GoOse/cmd/goose/cmd"
 )
 
 func main() {

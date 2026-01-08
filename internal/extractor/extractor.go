@@ -18,8 +18,8 @@ import (
 	"golang.org/x/net/html"
 	"golang.org/x/net/html/atom"
 
-	"github.com/advancedlogic/GoOse/internal/utils"
-	"github.com/advancedlogic/GoOse/pkg/goose"
+	"github.com/pavelbazika/GoOse/internal/utils"
+	"github.com/pavelbazika/GoOse/pkg/goose"
 )
 
 const defaultLanguage = "en"

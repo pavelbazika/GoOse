@@ -2,8 +2,8 @@ package parser
 
 import (
 	resty "github.com/go-resty/resty/v2"
+	"github.com/pavelbazika/GoOse/pkg/goose"
 	"github.com/pkg/errors"
-	"github.com/advancedlogic/GoOse/pkg/goose"
 )
 
 type HtmlRequester interface {

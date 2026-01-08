@@ -1,7 +1,7 @@
 # MAKEFILE
 #
 # @author      Nicola Asuni <info@tecnick.com>
-# @link        https://github.com/advancedlogic/GoOse
+# @link        https://github.com/pavelbazika/GoOse
 #
 # Modern Makefile for Go modules project
 #
@@ -17,7 +17,7 @@ SHELL=/bin/bash
 PROJECT=GoOse
 BINARY_NAME=goose
 VERSION=$(shell cat VERSION)
-MODULE=github.com/advancedlogic/GoOse
+MODULE=github.com/pavelbazika/GoOse
 
 # Build details
 BUILD_DIR=bin

@@ -6,7 +6,7 @@ import (
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/fatih/set"
-	"github.com/advancedlogic/GoOse/pkg/goose"
+	"github.com/pavelbazika/GoOse/pkg/goose"
 )
 
 // VideoExtractor can extract the main video from an HTML page
