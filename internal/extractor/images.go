@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/advancedlogic/GoOse/pkg/goose"
+	"github.com/pavelbazika/GoOse/pkg/goose"
 )
 
 type candidate struct {

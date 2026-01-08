@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/advancedlogic/GoOse/pkg/goose"
+	"github.com/pavelbazika/GoOse/pkg/goose"
 	"github.com/spf13/cobra"
 )
 
@@ -108,10 +108,10 @@ func cleanupExtractedText(text, title string) string {
 	lines := strings.Split(text, "\n")
 	var cleanedLines []string
 	seenLines := make(map[string]bool)
-	
+
 	for _, line := range lines {
 		line = strings.TrimSpace(line)
-		
+
 		// Skip empty lines, duplicate lines, and lines that are just the title
 		if line == "" {
 			// Only add empty line if the last line wasn't empty
@@ -126,13 +126,13 @@ func cleanupExtractedText(text, title string) string {
 			seenLines[line] = true
 		}
 	}
-	
+
 	// Join lines back together
 	result := strings.Join(cleanedLines, "\n")
-	
+
 	// Remove excessive blank lines
 	result = regexp.MustCompile(`\n{3,}`).ReplaceAllString(result, "\n\n")
-	
+
 	return strings.TrimSpace(result)
 }
 

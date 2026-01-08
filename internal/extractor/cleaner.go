@@ -7,9 +7,9 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/pavelbazika/GoOse/pkg/goose"
 	"golang.org/x/net/html"
 	"golang.org/x/net/html/atom"
-	"github.com/advancedlogic/GoOse/pkg/goose"
 )
 
 var whitelistedTextAtomTypes = []atom.Atom{atom.Span, atom.Em, atom.I, atom.Strong, atom.B, atom.P, atom.H1, atom.H2, atom.H3, atom.H4}
@@ -564,14 +564,14 @@ func (c *Cleaner) removeNavigationElements(doc *goquery.Document) *goquery.Docum
 				"facebook", "tweet", "email", "link", "link copied",
 				"see all topics", "updated", "published", "min read",
 			}
-			
+
 			for _, pattern := range navPatterns {
 				if strings.Contains(lowerText, pattern) {
 					c.config.Parser.RemoveNode(s)
 					return
 				}
 			}
-			
+
 			// Remove elements that are mostly numbers or short phrases
 			words := strings.Fields(text)
 			if len(words) < 4 && len(text) < 50 {
@@ -579,9 +579,9 @@ func (c *Cleaner) removeNavigationElements(doc *goquery.Document) *goquery.Docum
 				hasNavWords := false
 				for _, word := range words {
 					word = strings.ToLower(word)
-					if word == "news" || word == "sports" || word == "weather" || 
-					   word == "politics" || word == "business" || word == "health" ||
-					   word == "entertainment" || word == "travel" || word == "more" {
+					if word == "news" || word == "sports" || word == "weather" ||
+						word == "politics" || word == "business" || word == "health" ||
+						word == "entertainment" || word == "travel" || word == "more" {
 						hasNavWords = true
 						break
 					}
@@ -593,7 +593,7 @@ func (c *Cleaner) removeNavigationElements(doc *goquery.Document) *goquery.Docum
 			}
 		}
 	})
-	
+
 	return doc
 }
 

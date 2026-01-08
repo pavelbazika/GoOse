@@ -4,8 +4,8 @@
 
 [![Build Status](https://secure.travis-ci.org/advancedlogic/GoOse.png?branch=master)](https://travis-ci.org/advancedlogic/GoOse?branch=master)
 [![Coverage Status](https://coveralls.io/repos/advancedlogic/GoOse/badge.svg?branch=master&service=github)](https://coveralls.io/github/advancedlogic/GoOse?branch=master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/advancedlogic/GoOse)](https://goreportcard.com/report/github.com/advancedlogic/GoOse)
-[![GoDoc](https://godoc.org/github.com/advancedlogic/GoOse?status.svg)](http://godoc.org/github.com/advancedlogic/GoOse)
+[![Go Report Card](https://goreportcard.com/badge/github.com/pavelbazika/GoOse)](https://goreportcard.com/report/github.com/pavelbazika/GoOse)
+[![GoDoc](https://godoc.org/github.com/pavelbazika/GoOse?status.svg)](http://godoc.org/github.com/pavelbazika/GoOse)
 
 ## Description
 
@@ -27,16 +27,16 @@ Originally licensed to Gravity.com under the Apache License 2.0. Go port written
 
 ### As a Library
 ```bash
-go get github.com/advancedlogic/GoOse
+go get github.com/pavelbazika/GoOse
 ```
 
 ### As a CLI Tool
 ```bash
 # Install directly
-go install github.com/advancedlogic/GoOse/cmd/goose@latest
+go install github.com/pavelbazika/GoOse/cmd/goose@latest
 
 # Or build from source
-git clone https://github.com/advancedlogic/GoOse.git
+git clone https://github.com/pavelbazika/GoOse.git
 cd GoOse
 make build
 # Binary will be available at ./bin/goose
@@ -72,13 +72,13 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/advancedlogic/GoOse/pkg/goose"
+	"github.com/pavelbazika/GoOse/pkg/goose"
 )
 
 func main() {
 	// Create a new GoOse instance
 	g := goose.New()
-	
+
 	// Extract from URL
 	article, err := g.ExtractFromURL("https://edition.cnn.com/2012/07/08/opinion/banzi-ted-open-source/index.html")
 	if err != nil {
@@ -103,7 +103,7 @@ func main() {
 package main
 
 import (
-	"github.com/advancedlogic/GoOse/pkg/goose"
+	"github.com/pavelbazika/GoOse/pkg/goose"
 )
 
 func main() {
@@ -114,17 +114,17 @@ func main() {
 		UserAgent:      "MyApp/1.0",
 		Timeout:        30, // seconds
 	}
-	
+
 	// Create GoOse with custom configuration
 	g := goose.NewWithConfig(config)
-	
+
 	// Extract from raw HTML
 	html := "<html><body><article><h1>Title</h1><p>Content...</p></article></body></html>"
 	article, err := g.ExtractFromRawHTML(html, "https://example.com")
 	if err != nil {
 		// Handle error
 	}
-	
+
 	// Use the extracted article
 	_ = article
 }
@@ -159,7 +159,7 @@ GoOse follows standard Go project layout:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/advancedlogic/GoOse.git
+   git clone https://github.com/pavelbazika/GoOse.git
    cd GoOse
    ```
 
@@ -224,7 +224,7 @@ make tidy          # Clean up go.mod and go.sum
 
 For complete API documentation, run:
 ```bash
-go doc github.com/advancedlogic/GoOse/pkg/goose
+go doc github.com/pavelbazika/GoOse/pkg/goose
 ```
 
 ## Contributing

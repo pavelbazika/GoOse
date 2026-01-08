@@ -5,10 +5,10 @@ import (
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/pavelbazika/GoOse/internal/extractor"
+	"github.com/pavelbazika/GoOse/internal/utils"
+	"github.com/pavelbazika/GoOse/pkg/goose"
 	"github.com/pkg/errors"
-	"github.com/advancedlogic/GoOse/internal/extractor"
-	"github.com/advancedlogic/GoOse/internal/utils"
-	"github.com/advancedlogic/GoOse/pkg/goose"
 )
 
 // Crawler can fetch the target HTML page
